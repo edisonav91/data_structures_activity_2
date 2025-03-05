@@ -10,23 +10,21 @@ public class Square : GeometricFigure
 {
     private decimal _a;
 
-    public Square(decimal _a)
+    public Square(decimal a)
     {
-        _A = _a;
-
+        A = ValidateA(a);
     }
 
-    public decimal _A { get => _a; set => _a = value; }
+    public decimal A { get => _a; set => _a = ValidateA(value); }
 
-    public override double GetArea()
+    public override decimal GetArea() => A * A;
+
+    public override decimal GetPerimeter() => 4 * A;
+
+    private decimal ValidateA(decimal a)
     {
-        throw new NotImplementedException();
+        if (a <= 0)
+            throw new ArgumentException($"Invalid side length: {a}");
+        return a;
     }
-
-    public override double GetPerimeter()
-    {
-        throw new NotImplementedException();
-    }
-
-    public decimal square 
 }

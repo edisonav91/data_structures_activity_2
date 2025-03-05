@@ -4,16 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataStructuresActivity_2;
-public abstract class GeometricFigure
+namespace DataStructuresActivity_2
 {
-    public string? Name { get; set; }
-
-    public abstract double GetArea();
-    public abstract double GetPerimeter();
-
-    public override string ToString()
+    public abstract class GeometricFigure
     {
-        return $"Figura: {Name}, Área: {GetArea()}, Perímetro: {GetPerimeter()}";
+        public string? Name { get; set; }
+
+        public abstract decimal GetArea();
+        public abstract decimal GetPerimeter();
+
+        public override string ToString()
+        {
+            return $"Figura: {Name}, Área: {GetArea()}, Perímetro: {GetPerimeter()}";
+        }
     }
 }
