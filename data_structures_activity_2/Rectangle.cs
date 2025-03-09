@@ -12,7 +12,7 @@ namespace DataStructuresActivity_2
 
         public Rectangle(string name, decimal a, decimal b) : base(name, a)
         {
-            B = ValidateRectangle (b);
+            B = ValidateRectangle(b);
         }
 
         public decimal B { get => _b; set => _b = ValidateRectangle(value); }

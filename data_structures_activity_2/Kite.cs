@@ -17,7 +17,7 @@ namespace DataStructuresActivity_2
         }
 
         public decimal B { get => _b; set => _b = ValidarLado(value); }
-        
+
         public override decimal GetPerimeter() => 2 * (A + B);
     }
 }
