@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataStructuresActivity_2;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,23 +11,25 @@ namespace DataStructuresActivity_2
     {
         private decimal _r;
 
-        public Circle(decimal r)
+        public Circle(string name, decimal r) : base(name)
         {
-            R = ValidateR(r);
+            R = ValidarRadio(r);
         }
 
-        public decimal R { get => _r; set => _r = ValidateR(value); }
+        public decimal R { get => _r; set => _r = ValidarRadio(value); }
 
         public override decimal GetArea() => (decimal)Math.PI * R * R;
 
         public override decimal GetPerimeter() => 2 * (decimal)Math.PI * R;
 
-        private decimal ValidateR(decimal r)
+        private decimal ValidarRadio(decimal r)
         {
             if (r <= 0)
-                throw new ArgumentException($"Invalid radius: {r}");
+                throw new ArgumentException($"El radio no es válido: {r}. Debe ser mayor que 0.");
             return r;
         }
     }
-    
+
 }
+
+

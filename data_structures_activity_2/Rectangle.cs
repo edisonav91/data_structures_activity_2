@@ -6,27 +6,25 @@ using System.Threading.Tasks;
 
 namespace DataStructuresActivity_2
 {
-    public class Rectangle : GeometricFigure
+    public class Rectangle : Square
     {
-        private decimal _a, _b;
+        private decimal _b;
 
-        public Rectangle(decimal a, decimal b)
+        public Rectangle(string name, decimal a, decimal b) : base(name, a)
         {
-            A = ValidateSide(a);
-            B = ValidateSide(b);
+            B = ValidateRectangle (b);
         }
 
-        public decimal A { get => _a; set => _a = ValidateSide(value); }
-        public decimal B { get => _b; set => _b = ValidateSide(value); }
+        public decimal B { get => _b; set => _b = ValidateRectangle(value); }
 
         public override decimal GetArea() => A * B;
 
         public override decimal GetPerimeter() => 2 * (A + B);
 
-        private decimal ValidateSide(decimal side)
+        public decimal ValidateRectangle(decimal side)
         {
             if (side <= 0)
-                throw new ArgumentException($"Invalid side length: {side}");
+                throw new ArgumentException($"El valor del lado no es válido: {side}");
             return side;
         }
     }
