@@ -15,7 +15,7 @@ namespace DataStructuresActivity_2
             B = ValidateRectangle(b);
         }
 
-        public decimal B { get => _b; set => _b = ValidateRectangle(value); }
+        public decimal B { get => _b; set => _b = ValidarLado(value); }
 
         public override decimal GetArea() => A * B;
 
