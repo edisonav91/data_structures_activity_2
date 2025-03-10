@@ -11,7 +11,7 @@ namespace DataStructuresActivity_2
     {
         private decimal _b;
 
-        public Kite(string name, decimal a, decimal b, decimal d1, decimal d2) : base(name, a, d1, d2)
+        public Kite(string name, decimal a, decimal d1, decimal d2, decimal b) : base(name, a, d1, d2)
         {
             B = ValidarLado(b);
         }
@@ -19,5 +19,6 @@ namespace DataStructuresActivity_2
         public decimal B { get => _b; set => _b = ValidarLado(value); }
 
         public override decimal GetPerimeter() => 2 * (A + B);
+        public override decimal GetArea() => (D1 * D2) / 2;
     }
 }

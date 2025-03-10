@@ -12,7 +12,7 @@ namespace DataStructuresActivity_2
 
         public Rectangle(string name, decimal a, decimal b) : base(name, a)
         {
-            B = ValidateRectangle(b);
+            B = ValidarLado(b); 
         }
 
         public decimal B { get => _b; set => _b = ValidarLado(value); }
@@ -20,12 +20,5 @@ namespace DataStructuresActivity_2
         public override decimal GetArea() => A * B;
 
         public override decimal GetPerimeter() => 2 * (A + B);
-
-        public decimal ValidateRectangle(decimal side)
-        {
-            if (side <= 0)
-                throw new ArgumentException($"El valor del lado no es válido: {side}");
-            return side;
-        }
     }
 }

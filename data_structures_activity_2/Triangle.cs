@@ -8,7 +8,8 @@ namespace DataStructuresActivity_2
 {
     public class Triangle : Rectangle
     {
-        public decimal _c;
+        private decimal _c;
+        private decimal _h; 
 
         public Triangle(string name, decimal a, decimal b, decimal c, decimal h) : base(name, a, b)
         {
@@ -18,17 +19,17 @@ namespace DataStructuresActivity_2
 
         private decimal ValidarAltura(decimal h)
         {
-            if (h <= 10)
-                throw new ArgumentException("La altura debe ser mayor que 0.");
+            if (h <= 0) 
+                throw new ArgumentException($"La altura no es válida: {h}. Debe ser mayor que 0.");
 
             return h;
         }
 
         public decimal C { get => _c; set => _c = ValidarLado(value); }
-        public decimal H { get; }
+        public decimal H { get => _h; private set => _h = value; } // 🔹 Ahora se puede asignar en el constructor
 
         public override decimal GetArea() => B * H / 2;
-
         public override decimal GetPerimeter() => A + B + C;
+
     }
 }
